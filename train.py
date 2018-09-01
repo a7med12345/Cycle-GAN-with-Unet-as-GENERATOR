@@ -214,7 +214,7 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument('--dataroot', type=str, default='', help='Data root',required=True)
-    parser.add_argument('--use_cuda', type=int, default=0, help='use gpu to train')
+    parser.add_argument('--use_cuda', type=int, default=1, help='use gpu to train')
     parser.add_argument('--batchSize', type=int, default=64, help='training batch size')
     parser.add_argument('--lr', type=float, default=0.001, help='training learning rate')
     parser.add_argument('--n_epochs', type=int, default=200, help='training epoches')
