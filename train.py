@@ -209,6 +209,10 @@ def train(opt):
 
     writer.export_scalars_to_json("./all_scalars.json")
     writer.close()
+    torch.save(netG_A2B.state_dict(), os.path.join(opt.save_dir, '%s' % "netG_A2B") )
+    torch.save(netG_B2A.state_dict(), os.path.join(opt.save_dir, '%s' % "netG_B2A") )
+    torch.save(netD_A.state_dict(),os.path.join(opt.save_dir, '%s' % "netD_A") )
+    torch.save(netD_B.state_dict(),os.path.join(opt.save_dir, '%s' % "netD_B"))
 
 def main():
 
@@ -219,7 +223,7 @@ def main():
     parser.add_argument('--lr', type=float, default=0.001, help='training learning rate')
     parser.add_argument('--n_epochs', type=int, default=200, help='training epoches')
     parser.add_argument('--log_dir', type=str, default='', help='log directory',required=True)
-
+    parser.add_argument('--save_dir', type=str, default='', help='save directory', required=True)
     args = parser.parse_args()
 
     train(args)
